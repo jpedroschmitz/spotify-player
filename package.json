@@ -1,0 +1,66 @@
+{
+  "name": "spotify-player",
+  "version": "1.0.0",
+  "description": "A Spotify player using the simple-spotify-wrapper library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --bail --require @babel/register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --watch --require @babel/register",
+    "test:coverage": "nyc npm test",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint && npm run test:coverage",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --inline"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "functions": 80,
+    "lines": 80,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpedroschmitz/spotify-player.git"
+  },
+  "keywords": [
+    "js",
+    "library",
+    "tdd",
+    "spotify",
+    "webpack",
+    "player"
+  ],
+  "author": "Joao Pedro Schmitz <jpedroschmitz@hotmail.com> (https://www.joaopedro.cc/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpedroschmitz/spotify-player/issues"
+  },
+  "homepage": "https://github.com/jpedroschmitz/spotify-player#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "husky": "^1.3.1",
+    "jsdom": "^14.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "simple-spotify-wrapper": "^3.0.1"
+  }
+}
